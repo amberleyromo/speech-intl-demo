@@ -1,0 +1,9 @@
+{
+    "greeting": "Hallo",
+    "app.requestVocalization": "Was möchtest du sagen?",
+    "app.speak": "Sprechen",
+    "app.options": "Optionen",
+    "app.pitch": "Tonhöhe",
+    "app.rate": "Geschwindigkeit",
+    "app.volume": "Volumen"
+}

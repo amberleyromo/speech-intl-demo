@@ -1,0 +1,9 @@
+{
+    "app.greeting": "Hello",
+    "app.requestVocalization": "What would you like to say?",
+    "app.speak": "Speak",
+    "app.options": "options",
+    "app.pitch": "pitch",
+    "app.rate": "rate",
+    "app.volume": "volume"
+}

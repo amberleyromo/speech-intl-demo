@@ -1,0 +1,10 @@
+.Speech-ttsLog {
+    text-align: left;
+    max-width: 65%;
+    margin: 0 auto;
+    background: #eee;
+    padding: 1rem;
+    border-radius: 0px 0px 30px 30px;
+    border: .5px solid #ccc;
+  }
+  

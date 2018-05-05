@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: rgb(227, 0, 140);
+  height: 100%;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 2.5em;
+}
+
+.App-form {
+  background-color: rgb(227, 0, 140, 80%);
+  margin-bottom: 2rem;
+  font-size: .8rem;
+}
+
+.App-form label {
+  display: block;
+}
+
+.App-form input[type=text] {
+  padding: 1rem;
+  border: 0.125rem solid rgba(230, 230, 230, 0.80);
+  border-radius: 0.5rem;
+  background-color: rgba(230, 230, 230, 0.95);
+  min-width: 50%;
+  margin: 1rem .5rem 0 0;
+}
+
+.App-form input[type=range] {
+  min-width: 50%;
+}
+
+.App-form button {
+  padding: 1rem;
+  border: 0.125rem solid rgba(230, 230, 230, 0.80);
+  border-radius: 0.5rem;
+  background-color: rgba(230, 230, 230, 0.95);
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.Speech-ttsLog {
+  text-align: left;
+  max-width: 50%;
+  margin: 0 auto;
+  background: #eee;
+  padding: 1rem;
+  border-radius: 0px 0px 30px 30px;
+  border: .5px solid #ccc;
+}
