@@ -96,14 +96,14 @@ class App extends Component {
               <button type="submit">{intlSpeakTitle}</button>
 
               <h2>{intlOptionsTitle}:</h2>
-              <label htmlFor="pitch">{intlPitchTitle}: {options.pitch}</label>
+              <label htmlFor="pitch"><span>{intlPitchTitle}: {options.pitch}</span></label>
               <input onChange={(e) => {this.handlePitchChange(e)}} type="range" min="0" max="2" value={options.pitch} step="0.1" id="pitch" />
               
 
-              <label htmlFor="rate">{intlRateTitle}: {options.rate}</label>
+              <label htmlFor="rate"><span>{intlRateTitle}: {options.rate}</span></label>
               <input onChange={(e) => {this.handleRateChange(e)}} type="range" min="0.5" max="2" value={options.rate} step="0.1" id="rate" />
               
-              <label htmlFor="volume">{intlVolumeTitle}: {options.volume}</label>
+              <label htmlFor="volume"><span>{intlVolumeTitle}: {options.volume}</span></label>
               <input onChange={(e) => {this.handleVolumeChange(e)}} type="range" min="0" max="1" value={options.volume} step="0.1" id="volume" />
             </form>
           ) : (
