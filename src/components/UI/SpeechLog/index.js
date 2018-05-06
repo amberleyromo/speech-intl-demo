@@ -1,1 +1,1 @@
-export { default } from './SpeechLog.component';
+export { default } from './SpeechLog.container';

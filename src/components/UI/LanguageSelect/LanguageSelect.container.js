@@ -1,24 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { injectIntl, intlShape } from 'react-intl';
+import LanguageTags from 'language-tags';
+import messages from './LanguageSelect.messages';
 // import { FormattedMessage } from 'react-intl';
 
 import { changeLang } from '../../../providers/LanguageProvider/LanguageProvider.actions';
-import LanguageSelect from './LanguageSelect.component';
 import './LanguageSelect.css';
-
-const sortLangs = (lang, [...langs] = []) => {
-  const langIndex = langs.indexOf(lang);
-  if (langIndex >= 0) {
-    const temp = langs[0];
-    langs[0] = langs[langIndex];
-    langs[langIndex] = temp;
-  }
-  return langs;
-};
-
 export class LanguageContainer extends Component {
   static propTypes = {
+    intl: intlShape.isRequired,
     lang: PropTypes.string.isRequired,
     langs: PropTypes.arrayOf(PropTypes.string).isRequired,
     onLangChange: PropTypes.func.isRequired,
@@ -27,35 +19,70 @@ export class LanguageContainer extends Component {
 
   state = { selectedLang: this.props.lang };
 
+  render() {
+    const { lang, langs, supportsIntlApi, intl } = this.props;
+    const intlChangeLang = intl.formatMessage(messages.changeLanguage);
+
+    const sortedLangs = this.sortLangs(lang, langs);
+    const langOptions = langs.map((lang, index, array) => {
+      const locale = lang.slice(0, 2).toLowerCase();
+      const showLangCode =
+      sortedLangs.filter(langCode => langCode.slice(0, 2).toLowerCase() === locale)
+          .length > 1;
+
+      const langCode = showLangCode ? `(${lang})` : '';
+      return (
+        <option key={lang} value={lang}>
+          {`${LanguageTags.language(locale).descriptions()[0]} ${langCode}`}
+        </option>
+      );
+    });
+
+    return (
+      <Fragment>
+        {supportsIntlApi && (
+          <div className="LanguageSelect">
+          <label>{intlChangeLang}: 
+            <select 
+              value={this.state.selectedLang}
+              onChange={(e) => {this.selectLang(e.target.value)}}
+            >
+              {langOptions}
+            </select>
+          </label>
+        </div>
+        )}
+      </Fragment>
+    )
+  }
+
   selectLang = (lang) => {
     const { onLangChange } = this.props;
     onLangChange(lang);
   };
 
-  render() {
-    const { lang, langs, intlChangeLang } = this.props;
-    const sortedLangs = sortLangs(lang, langs);
-
-    return (
-      <LanguageSelect
-        // title={<FormattedMessage {...messages.language} />}
-        intlChangeLang={intlChangeLang}
-        selectedLang={this.state.selectedLang}
-        langs={sortedLangs}
-        onLangClick={this.handleLangClick}
-        onSelectLang={this.selectLang}
-      />
-    );
-  }
+  // sorts selected language to top
+  sortLangs = (lang, [...langs] = []) => {
+    const langIndex = langs.indexOf(lang);
+    if (langIndex >= 0) {
+      const temp = langs[0];
+      langs[0] = langs[langIndex];
+      langs[langIndex] = temp;
+    }
+    return langs;
+  };
 }
 
 const mapStateToProps = state => ({
   lang: state.language.lang,
-  langs: state.language.langs
+  langs: state.language.langs,
+  supportsIntlApi: state.speech.supportsIntlApi
 });
 
 const mapDispatchToProps = {
   onLangChange: changeLang
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LanguageContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  injectIntl(LanguageContainer)
+);

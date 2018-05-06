@@ -1,6 +1,7 @@
 .LanguageSelect {
     border-bottom: .5px solid #fff;
-    padding-bottom: 1rem; 
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 select {
