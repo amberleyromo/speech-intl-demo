@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './TtsLog.css';
+import './SpeechLog.css';
 
-class TtsLog extends Component {
+class SpeechLog extends Component {
     static propTypes = {
         vocalization: PropTypes.string,
         intlOptionsTitle: PropTypes.string,
@@ -12,7 +12,7 @@ class TtsLog extends Component {
     render() {
         const { vocalization, intlOptionsTitle, options } = this.props;
         return (
-            <div className="Speech-ttsLog">
+            <div className="Speech-Log">
                 <pre>const synth = window.speechSynthesis;</pre>
                 {vocalization !== '' && (
                     <div>
@@ -27,4 +27,4 @@ class TtsLog extends Component {
     }
 }
 
-export default TtsLog;
+export default SpeechLog;

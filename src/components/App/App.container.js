@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { injectIntl, intlShape } from 'react-intl';
 import './App.css';
-import TtsLog from '../UI/TtsLog';
+import SpeechLog from '../UI/SpeechLog';
 import LanguageSelect from '../UI/LanguageSelect';
 import BrowserSupport from '../UI/BrowserSupport';
 
@@ -110,7 +110,7 @@ class App extends Component {
             <h2>Support for Web Speech API {intlNotFound}</h2>
           )}
         </header>
-        <TtsLog
+        <SpeechLog
           vocalization={vocalization}
           intlOptionsTitle={intlOptionsTitle}
           options={options} />
