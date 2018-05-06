@@ -1,0 +1,2 @@
+webpackJsonp([0],{433:function(a,p){a.exports={greeting:"Hola","app.changeLanguage":"cambia idioma","app.requestVocalization":"\xbfQu\xe9 quieres decir?","app.notFound":"no encontrado","app.speak":"habla","app.options":"opciones","app.pitch":"tono","app.rate":"velocidad","app.volume":"volumen","app.seeSpeechSynthesisSupport":"Revisa cuales idiomas y voces son soportadas por tu navegador","app.today":"hoy"}}});
+//# sourceMappingURL=0.f30e9032.chunk.js.map
