@@ -7,5 +7,6 @@
     "app.options": "Optionen",
     "app.pitch": "Tonhöhe",
     "app.rate": "Geschwindigkeit",
-    "app.volume": "Lautstärke"
+    "app.volume": "Lautstärke",
+    "app.seeSpeechSynthesisSupport": "Sieh, welche Sprachen und Stimmen den Browser unterstütz"
 }
