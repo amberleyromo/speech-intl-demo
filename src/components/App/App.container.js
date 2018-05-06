@@ -8,7 +8,6 @@ import SpeechInput from '../UI/SpeechInput';
 import LanguageSelect from '../UI/LanguageSelect';
 import BrowserSupport from '../UI/BrowserSupport';
 import OutlinkBanner from '../UI/OutlinkBanner';
-import messages from './App.messages';
 
 class App extends Component {
   static propTypes = {
