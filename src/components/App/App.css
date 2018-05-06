@@ -3,7 +3,7 @@
 }
 
 .App-header, .App-main {
-  background-color: rgb(234, 234, 234);
+  background-color: rgb(244, 244, 244);
   height: 100%;
   padding: 5px;
   color: rgb(29, 28, 28);
@@ -11,55 +11,6 @@
 
 .App-title {
   font-size: 2em;
-}
-
-.App-form {
-  margin: 0 auto;
-  font-size: .8rem;
-  max-width: 70%;
-}
-
-.App-form label {
-  display: block;
-  font-size: 1rem;
-}
-
-.App-form label span {
-  padding: .4rem .8rem;
-  border-radius: 0.5rem;
-  background-color: rgb(0, 32, 80);
-  color: #fff;
-}
-
-.App-form .App-vocalization-title {
-  font-size: 1.8em;
-}
-
-.App-form input[type=text] {
-  padding: 1rem;
-  border: 0.125rem solid rgba(0, 32, 80, 0.20);
-  border-radius: 0.5rem;
-  background-color: rgba(230, 230, 230, 0.95);
-  min-width: 50%;
-  margin: 1rem .5rem 0 0;
-}
-
-.App-form input[type=range] {
-  min-width: 80%;
-  margin: 1.2rem 0;
-
-}
-
-.App-form button {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: rgb(0, 32, 80);
-  color: #fff;
-  font-size: .8rem;
-}
-
-.App-form button:hover {
-  background-color: rgb(0, 32, 80, 95%);
 }
 
 .App-intro {

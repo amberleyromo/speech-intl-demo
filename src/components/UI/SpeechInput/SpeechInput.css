@@ -1,29 +1,48 @@
 .SpeechInput-form {
-    background-color: rgb(227, 0, 140, 80%);
-    margin-bottom: 2rem;
-    font-size: .8rem;
-  }
-  
+  margin: 0 auto;
+  font-size: .8rem;
+  max-width: 70%;
+}
+
 .SpeechInput-form label {
-display: block;
+  display: block;
+  font-size: .8rem;
+}
+
+.SpeechInput-form label span {
+  padding: .4rem .8rem;
+  border-radius: 0.2rem;
+  background-color: rgb(80, 80, 80);
+  color: #fff;
+}
+
+.SpeechInput-form .SpeechInput-vocalization-title {
+  font-size: 1.8em;
 }
 
 .SpeechInput-form input[type=text] {
-padding: 1rem;
-border: 0.125rem solid rgba(230, 230, 230, 0.80);
-border-radius: 0.5rem;
-background-color: rgba(230, 230, 230, 0.95);
-min-width: 50%;
-margin: 1rem .5rem 0 0;
+  padding: 1rem;
+  border: 0.125rem solid rgba(0, 32, 80, 0.20);
+  border-radius: 0.5rem;
+  background-color: rgba(230, 230, 230, 0.95);
+  min-width: 50%;
+  margin: 1rem .5rem 0 0;
 }
 
 .SpeechInput-form input[type=range] {
-min-width: 50%;
+  min-width: 80%;
+  margin: 1.2rem 0;
+
 }
 
 .SpeechInput-form button {
-padding: 1rem;
-border: 0.125rem solid rgba(230, 230, 230, 0.80);
-border-radius: 0.5rem;
-background-color: rgba(230, 230, 230, 0.95);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgb(0, 32, 80);
+  color: #fff;
+  font-size: .8rem;
+}
+
+.SpeechInput-form button:hover {
+  background-color: rgb(0, 32, 80, 95%);
 }

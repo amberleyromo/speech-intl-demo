@@ -38,8 +38,8 @@ class SpeechInputContainer extends Component {
     return (
       <Fragment>
         {supportsSpeechApi ? (
-          <form className="App-form" onSubmit={this.vocalize}>
-            <label className="App-vocalization-title" htmlFor="vocalization">{intlRequestVocalization}</label>
+          <form className="SpeechInput-form" onSubmit={this.vocalize}>
+            <label className="SpeechInput-vocalization-title" htmlFor="vocalization">{intlRequestVocalization}</label>
             <input
               autoFocus
               type="text"
