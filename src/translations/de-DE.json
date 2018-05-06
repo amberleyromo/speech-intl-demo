@@ -8,5 +8,6 @@
     "app.pitch": "Tonhöhe",
     "app.rate": "Geschwindigkeit",
     "app.volume": "Lautstärke",
-    "app.seeSpeechSynthesisSupport": "Sieh, welche Sprachen und Stimmen den Browser unterstütz"
+    "app.seeSpeechSynthesisSupport": "Sieh, welche Sprachen und Stimmen den Browser unterstütz",
+    "app.today": "heute"
 }

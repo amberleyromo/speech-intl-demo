@@ -11,7 +11,7 @@ export default defineMessages({
   },
   speak: {
     id: 'app.speak',
-    defaultMessage: 'Speak'
+    defaultMessage: 'speak'
   },
   options: {
     id: 'app.options',

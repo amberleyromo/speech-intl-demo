@@ -1,6 +1,10 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
+  today: {
+    id: 'app.today',
+    defaultMessage: 'today'
+  },
   changeLanguage: {
     id: 'app.changeLanguage',
     defaultMessage: 'change language'

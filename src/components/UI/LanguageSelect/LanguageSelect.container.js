@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { injectIntl, intlShape } from 'react-intl';
 import LanguageTags from 'language-tags';
 import messages from './LanguageSelect.messages';
-// import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedDate } from 'react-intl';
 
 import { changeLang } from '../../../providers/LanguageProvider/LanguageProvider.actions';
 import './LanguageSelect.css';
@@ -16,7 +16,6 @@ export class LanguageContainer extends Component {
 
   render() {
     const { lang, langs, supportsIntlApi, intl } = this.props;
-    const intlChangeLang = intl.formatMessage(messages.changeLanguage);
 
     const sortedLangs = this.sortLangs(lang, langs);
     const langOptions = langs.map((lang, index, array) => {
@@ -37,15 +36,25 @@ export class LanguageContainer extends Component {
       <Fragment>
         {supportsIntlApi && (
           <div className="LanguageSelect">
-          <label>{intlChangeLang}: 
-            <select 
-              value={this.state.selectedLang}
-              onChange={(e) => {this.selectLang(e.target.value)}}
-            >
-              {langOptions}
-            </select>
-          </label>
-        </div>
+            <div>
+              <FormattedMessage {...messages.today} />
+              {`: `}
+              <FormattedDate
+                value={Date.now()}
+                year='numeric'
+                month='long'
+                day='numeric'
+                weekday='long' />
+            </div>
+            <label>{intl.formatMessage(messages.changeLanguage)}:
+              <select
+                value={this.state.selectedLang}
+                onChange={(e) => {this.selectLang(e.target.value)}}
+              >
+                {langOptions}
+              </select>
+            </label>
+          </div>
         )}
       </Fragment>
     )

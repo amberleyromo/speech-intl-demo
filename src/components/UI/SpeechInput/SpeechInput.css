@@ -16,8 +16,10 @@
   color: #fff;
 }
 
-.SpeechInput-form .SpeechInput-vocalization-title {
+.SpeechInput-form .SpeechInput-vocalization-title span {
   font-size: 1.8em;
+  background-color: transparent;
+  color: #000;
 }
 
 .SpeechInput-form input[type=text] {
