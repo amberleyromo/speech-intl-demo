@@ -72,7 +72,6 @@ export class LanguageProvider extends Component {
 
     importTranslation(lang)
       .then(messages => {
-        console.log(messages);
         this.setState({ messages });
       })
       .catch(() => {
@@ -87,11 +86,8 @@ export class LanguageProvider extends Component {
     const locale = lang.slice(0, 2);
 
     if (!this.state.messages) {
-      console.log('uh oh, no messages');
       return null;
     }
-
-    console.log('huzzah, we have messages')
 
     return (
       <IntlProvider locale={locale} key={locale} messages={this.state.messages}>

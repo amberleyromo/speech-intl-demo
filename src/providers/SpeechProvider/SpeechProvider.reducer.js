@@ -6,12 +6,16 @@ import {
     CHANGE_VOLUME,
     START_SPEECH,
     END_SPEECH,
-    LOG_TTS
+    LOG_TTS,
+    CHECK_SPEECH_API,
+    CHECK_INTL_API,
   } from './SpeechProvider.constants';
   
   import { CHANGE_LANG } from '../LanguageProvider/LanguageProvider.constants';
   
   const initialState = {
+    supportsSpeechApi: false,
+    supportsIntlApi: false,
     voices: [],
     langs: [],
     options: {
@@ -57,17 +61,17 @@ import {
       case CHANGE_RATE:
         return { ...state, options: { ...state.options, rate: action.rate } };
       case CHANGE_VOLUME:
-      console.log('running CHANGE_VOLUME reducer');
-      console.log('state.options', state.options);
-      console.log('action.volume', action.volume)
         return { ...state, options: { ...state.options, volume: action.volume } };
       case START_SPEECH:
         return { ...state, isSpeaking: action.isSpeaking };
       case END_SPEECH:
         return { ...state, isSpeaking: action.isSpeaking };
       case LOG_TTS:
-        console.log('LOG_TTS action', action);
         return {...state, vocalization: action.vocalization }
+      case CHECK_SPEECH_API:
+        return {...state, supportsSpeechApi: action.supportsSpeechApi }
+        case CHECK_INTL_API:
+        return {...state, supportsIntlApi: action.supportsIntlApi }
       default:
         return state;
     }

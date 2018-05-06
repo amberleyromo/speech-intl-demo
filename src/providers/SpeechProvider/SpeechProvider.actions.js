@@ -8,7 +8,9 @@ import {
     START_SPEECH,
     LOG_TTS,
     END_SPEECH,
-    CANCEL_SPEECH
+    CANCEL_SPEECH,
+    CHECK_SPEECH_API,
+    CHECK_INTL_API
   } from './SpeechProvider.constants';
   
   import tts from './tts';
@@ -96,6 +98,24 @@ import {
       dispatch({
         type: LOG_TTS,
         vocalization: text
+      });
+    }
+  }
+
+  export function checkSpeechApi(isSupported) {
+    return dispatch => {
+      dispatch({
+        type: CHECK_SPEECH_API,
+        supportsSpeechApi: isSupported
+      });
+    }
+  }
+
+  export function checkIntlApi(isSupported) {
+    return dispatch => {
+      dispatch({
+        type: CHECK_INTL_API,
+        supportsIntlApi: isSupported
       });
     }
   }

@@ -6,6 +6,7 @@ import { injectIntl, intlShape } from 'react-intl';
 import './App.css';
 import TtsLog from '../UI/TtsLog';
 import LanguageSelect from '../UI/LanguageSelect';
+import BrowserSupport from '../UI/BrowserSupport';
 
 import {
   speak,
@@ -16,7 +17,6 @@ import {
   changeVolume
 } from '../../providers/SpeechProvider/SpeechProvider.actions';
 import messages from './App.messages';
-import { CHANGE_VOLUME } from '../../providers/SpeechProvider/SpeechProvider.constants';
 
 class App extends Component {
   constructor(props) {
@@ -50,7 +50,16 @@ class App extends Component {
   };
 
   render() {
-    const { intl, lang, dir, vocalization, options } = this.props;
+    const {
+      intl,
+      lang,
+      dir,
+      vocalization,
+      options,
+      supportsIntlApi,
+      supportsSpeechApi
+    } = this.props;
+    
     // Translated strings
     const intlRequestVocalization = intl.formatMessage(messages.requestVocalization);
     const intlSpeakTitle = intl.formatMessage(messages.speak);
@@ -58,38 +67,53 @@ class App extends Component {
     const intlPitchTitle = intl.formatMessage(messages.pitch);
     const intlRateTitle = intl.formatMessage(messages.rate);
     const intlVolumeTitle = intl.formatMessage(messages.volume);
+    const intlNotFound = intl.formatMessage(messages.notFound);
+    const intlChangeLang = intl.formatMessage(messages.changeLanguage);
 
     return (
       <div className="App">
         <Helmet>
           <html lang={lang} dir={dir} />
         </Helmet>
+        <BrowserSupport />
         <header className="App-header">
-          <h1 className="App-title">Web Speech + Intl APIs</h1>
-          <LanguageSelect />
-          <form className="App-form" onSubmit={this.vocalize}>
-            <label htmlFor="vocalization">{intlRequestVocalization}</label>
-            <input
-              type="text"
-              id="vocalization"
-              value={this.state.vocalizationInput} 
-              onChange={this.handleVocalizationInput} 
+          {supportsIntlApi &&
+            <LanguageSelect
+              intlChangeLang={intlChangeLang}
             />
-            <button type="submit">{intlSpeakTitle}</button>
+          }
+          <h1 className="App-title">Web Speech + Intl APIs</h1>
+          {supportsSpeechApi ? (
+            <form className="App-form" onSubmit={this.vocalize}>
+              <label className="App-vocalization-title" htmlFor="vocalization">{intlRequestVocalization}</label>
+              <input
+                autoFocus
+                type="text"
+                id="vocalization"
+                value={this.state.vocalizationInput} 
+                onChange={this.handleVocalizationInput} 
+              />
+              <button type="submit">{intlSpeakTitle}</button>
 
-            <h2>{intlOptionsTitle}:</h2>
-            <label htmlFor="pitch">{intlPitchTitle}: {options.pitch}</label>
-            <input onChange={(e) => {this.handlePitchChange(e)}} type="range" min="0" max="2" value={options.pitch} step="0.1" id="pitch" />
-            
+              <h2>{intlOptionsTitle}:</h2>
+              <label htmlFor="pitch">{intlPitchTitle}: {options.pitch}</label>
+              <input onChange={(e) => {this.handlePitchChange(e)}} type="range" min="0" max="2" value={options.pitch} step="0.1" id="pitch" />
+              
 
-            <label htmlFor="rate">{intlRateTitle}: {options.rate}</label>
-            <input onChange={(e) => {this.handleRateChange(e)}} type="range" min="0.5" max="2" value={options.rate} step="0.1" id="rate" />
-            
-            <label htmlFor="volume">{intlVolumeTitle}: {options.volume}</label>
-            <input onChange={(e) => {this.handleVolumeChange(e)}} type="range" min="0" max="1" value={options.volume} step="0.1" id="volume" />
-          </form>
+              <label htmlFor="rate">{intlRateTitle}: {options.rate}</label>
+              <input onChange={(e) => {this.handleRateChange(e)}} type="range" min="0.5" max="2" value={options.rate} step="0.1" id="rate" />
+              
+              <label htmlFor="volume">{intlVolumeTitle}: {options.volume}</label>
+              <input onChange={(e) => {this.handleVolumeChange(e)}} type="range" min="0" max="1" value={options.volume} step="0.1" id="volume" />
+            </form>
+          ) : (
+            <h2>Support for Web Speech API {intlNotFound}</h2>
+          )}
         </header>
-        <TtsLog vocalization={vocalization} options={options} />
+        <TtsLog
+          vocalization={vocalization}
+          intlOptionsTitle={intlOptionsTitle}
+          options={options} />
       </div>
     );
   }
@@ -125,7 +149,9 @@ const mapStateToProps = state => ({
   dir: state.language.dir,
   lang: state.language.lang,
   vocalization: state.speech.vocalization,
-  options: state.speech.options
+  options: state.speech.options,
+  supportsSpeechApi: state.speech.supportsSpeechApi,
+  supportsIntlApi: state.speech.supportsIntlApi
 });
 
 const mapDispatchToProps = {

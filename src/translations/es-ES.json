@@ -1,6 +1,8 @@
 {
     "greeting": "Hola",
+    "app.changeLanguage": "cambia idioma",
     "app.requestVocalization": "¿Qué quieres decir?",
+    "app.notFound": "no encontrado",
     "app.speak": "Habla",
     "app.options": "opciones",
     "app.pitch": "tono",

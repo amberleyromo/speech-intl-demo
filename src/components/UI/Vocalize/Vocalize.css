@@ -1,0 +1,29 @@
+.Vocalize-form {
+    background-color: rgb(227, 0, 140, 80%);
+    margin-bottom: 2rem;
+    font-size: .8rem;
+  }
+  
+.Vocalize-form label {
+display: block;
+}
+
+.Vocalize-form input[type=text] {
+padding: 1rem;
+border: 0.125rem solid rgba(230, 230, 230, 0.80);
+border-radius: 0.5rem;
+background-color: rgba(230, 230, 230, 0.95);
+min-width: 50%;
+margin: 1rem .5rem 0 0;
+}
+
+.Vocalize-form input[type=range] {
+min-width: 50%;
+}
+
+.Vocalize-form button {
+padding: 1rem;
+border: 0.125rem solid rgba(230, 230, 230, 0.80);
+border-radius: 0.5rem;
+background-color: rgba(230, 230, 230, 0.95);
+}

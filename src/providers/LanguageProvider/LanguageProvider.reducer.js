@@ -6,6 +6,7 @@ function getDir(lang) {
 }
 
 const initialState = {
+  supportsIntl: false,
   lang: '',
   dir: '',
   langs: []
@@ -14,7 +15,6 @@ const initialState = {
 function languageProviderReducer(state = initialState, action) {
   switch (action.type) {
     case CHANGE_LANG:
-    console.log('running CHANGE_LANG reducer with ', action)
       return {
         ...state,
         lang: action.lang,

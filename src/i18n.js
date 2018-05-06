@@ -5,11 +5,16 @@ import { APP_LANGS } from './components/App/App.constants';
 const splitLangRgx = /[_-]+/;
 
 APP_LANGS.forEach(lang => {
-  console.log('lang', lang);
   const locale = lang.slice(0, 2);
   const localeData = require(`react-intl/locale-data/${locale}`);
   addLocaleData(localeData);
 });
+
+export default {
+  isSupported() {
+    return 'Intl' in window;
+  }
+}
 
 export function importTranslation(lang) {
   return import(`./translations/${lang}.json`);

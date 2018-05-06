@@ -8,3 +8,5 @@ export const START_SPEECH = 'Speech/START_SPEECH';
 export const END_SPEECH = 'Speech/END_SPEECH';
 export const CANCEL_SPEECH = 'Speech/CANCEL_SPEECH';
 export const LOG_TTS = 'Speech/LOG_TTS';
+export const CHECK_SPEECH_API = 'Speech/CHECK_SPEECH_API';
+export const CHECK_INTL_API = 'Speech/CHECK_INTL_API';

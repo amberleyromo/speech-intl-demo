@@ -5,17 +5,19 @@ import './TtsLog.css';
 class TtsLog extends Component {
     static propTypes = {
         vocalization: PropTypes.string,
+        intlOptionsTitle: PropTypes.string,
         options: PropTypes.object
     };
 
     render() {
-        const { vocalization, options } = this.props;
+        const { vocalization, intlOptionsTitle, options } = this.props;
         return (
             <div className="Speech-ttsLog">
                 <pre>const synth = window.speechSynthesis;</pre>
                 {vocalization !== '' && (
                     <div>
-                        <p>// Options:</p>
+                        {/* eslint-disable react/jsx-no-comment-textnodes */}
+                        <p>// {intlOptionsTitle}:</p>
                         <pre>{JSON.stringify(options, 0, 2)}</pre>
                     </div>
                 )}

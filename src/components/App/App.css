@@ -10,17 +10,23 @@
 }
 
 .App-title {
-  font-size: 2.5em;
+  font-size: 2em;
 }
 
 .App-form {
   background-color: rgb(227, 0, 140, 80%);
-  margin-bottom: 2rem;
+  margin: 0 auto;
   font-size: .8rem;
+  max-width: 70%;
 }
 
 .App-form label {
   display: block;
+  font-size: 1rem;
+}
+
+.App-form .App-vocalization-title {
+  font-size: 1.8em;
 }
 
 .App-form input[type=text] {
@@ -33,7 +39,9 @@
 }
 
 .App-form input[type=range] {
-  min-width: 50%;
+  min-width: 80%;
+  margin: .6rem 0 .4rem 0;
+
 }
 
 .App-form button {

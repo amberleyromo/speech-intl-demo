@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import configureStore, { getStore } from './store';
+import configureStore from './store';
 
 import SpeechProvider from './providers/SpeechProvider';
 import LanguageProvider from './providers/LanguageProvider';
