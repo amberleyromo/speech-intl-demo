@@ -1,2 +1,0 @@
-webpackJsonp([1],{429:function(p,a){p.exports={"app.greeting":"Hello","app.changeLanguage":"change language","app.requestVocalization":"What would you like to say?","app.notFound":"not found","app.speak":"Speak","app.options":"options","app.pitch":"pitch","app.rate":"rate","app.volume":"volume"}}});
-//# sourceMappingURL=1.43025362.chunk.js.map
