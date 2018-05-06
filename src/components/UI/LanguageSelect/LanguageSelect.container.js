@@ -1,21 +1,17 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { injectIntl, intlShape } from 'react-intl';
-import LanguageTags from 'language-tags';
-import messages from './LanguageSelect.messages';
 import { FormattedMessage, FormattedDate } from 'react-intl';
+import messages from './LanguageSelect.messages';
+import './LanguageSelect.css';
+import LanguageTags from 'language-tags';
 
 import { changeLang } from '../../../providers/LanguageProvider/LanguageProvider.actions';
-import './LanguageSelect.css';
-export class LanguageContainer extends Component {
-  static propTypes = {
-    intl: intlShape.isRequired,
-  };
 
+export class LanguageContainer extends Component {
   state = { selectedLang: this.props.lang };
 
   render() {
-    const { lang, langs, supportsIntlApi, intl } = this.props;
+    const { lang, langs, supportsIntlApi } = this.props;
 
     const sortedLangs = this.sortLangs(lang, langs);
     const langOptions = langs.map((lang, index, array) => {
@@ -38,6 +34,10 @@ export class LanguageContainer extends Component {
           <div className="LanguageSelect">
             <div>
               <FormattedMessage {...messages.today} />
+              {/* <FormattedMessage
+                 id='app.today'
+                 defaultMessage='today'
+              /> */}
               {`: `}
               <FormattedDate
                 value={Date.now()}
@@ -46,7 +46,7 @@ export class LanguageContainer extends Component {
                 day='numeric'
                 weekday='long' />
             </div>
-            <label>{intl.formatMessage(messages.changeLanguage)}:
+            <label><FormattedMessage {...messages.changeLanguage} />:
               <select
                 value={this.state.selectedLang}
                 onChange={(e) => {this.selectLang(e.target.value)}}
@@ -87,6 +87,4 @@ const mapDispatchToProps = {
   onLangChange: changeLang
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  injectIntl(LanguageContainer)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(LanguageContainer);

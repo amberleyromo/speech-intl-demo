@@ -5,18 +5,11 @@ import { IntlProvider } from 'react-intl';
 
 import { APP_LANGS, DEFAULT_LANG } from '../../components/App/App.constants';
 import { changeLang, setLangs } from './LanguageProvider.actions';
-// import { showNotification } from '../../components/Notifications/Notifications.actions';
 import { importTranslation } from '../../i18n';
 
 export class LanguageProvider extends Component {
   static propTypes = {
-    /**
-     * Active language
-     */
     lang: PropTypes.string.isRequired,
-    /**
-     * Platform supported languages
-     */
     platformLangs: PropTypes.array,
     children: PropTypes.node.isRequired
   };
@@ -66,7 +59,7 @@ export class LanguageProvider extends Component {
   }
 
   fetchMessages(lang) {
-    const { changeLang, showNotification } = this.props;
+    const { changeLang } = this.props;
 
     this.setState({ messages: null });
 
@@ -76,8 +69,7 @@ export class LanguageProvider extends Component {
       })
       .catch(() => {
         changeLang(DEFAULT_LANG);
-        showNotification(`A ${lang} translation was not found, so the language was set to English (en-US).
-          Go to Settings if you want to change it.`);
+        console.log(`A ${lang} translation was not found, so the language was set to English (en-US).`);
       });
   }
 
@@ -104,8 +96,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   setLangs,
-  changeLang,
-  //showNotification
+  changeLang
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LanguageProvider);
