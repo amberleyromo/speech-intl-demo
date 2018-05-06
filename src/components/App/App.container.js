@@ -7,6 +7,7 @@ import SpeechLog from '../UI/SpeechLog';
 import SpeechInput from '../UI/SpeechInput';
 import LanguageSelect from '../UI/LanguageSelect';
 import BrowserSupport from '../UI/BrowserSupport';
+import OutlinkBanner from '../UI/OutlinkBanner';
 import messages from './App.messages';
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
           <SpeechInput />
         </main>
         <SpeechLog />
+        <OutlinkBanner />
       </div>
     );
   }  

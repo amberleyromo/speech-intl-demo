@@ -11,10 +11,6 @@ import './LanguageSelect.css';
 export class LanguageContainer extends Component {
   static propTypes = {
     intl: intlShape.isRequired,
-    lang: PropTypes.string.isRequired,
-    langs: PropTypes.arrayOf(PropTypes.string).isRequired,
-    onLangChange: PropTypes.func.isRequired,
-    intlChangeLang: PropTypes.string.isRequired
   };
 
   state = { selectedLang: this.props.lang };

@@ -7,5 +7,6 @@
     "app.options": "options",
     "app.pitch": "pitch",
     "app.rate": "rate",
-    "app.volume": "volume"
+    "app.volume": "volume",
+    "app.seeSpeechSynthesisSupport": "See which languages and voices your browser supports"
 }
