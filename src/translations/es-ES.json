@@ -8,5 +8,6 @@
     "app.pitch": "tono",
     "app.rate": "velocidad",
     "app.volume": "volumen",
+    "app.seeSpeechSynthesisSupport": "Revisa cuales idiomas y voces son soportadas por tu navegador",
     "app.today": "hoy"
 }
