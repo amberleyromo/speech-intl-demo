@@ -1,3 +1,8 @@
+.LanguageSelect {
+    border-bottom: .5px solid #fff;
+    padding-bottom: 1rem; 
+}
+
 select {
     margin-left: .8rem;
 }

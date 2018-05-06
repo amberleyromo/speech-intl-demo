@@ -31,14 +31,16 @@ const Language = ({
         );
     });
     return (
-        <label>{intlChangeLang}: 
-            <select 
-                value={selectedLang}
-                onChange={(e) => {onSelectLang(e.target.value)}}
-            >
-                {langOptions}
-            </select>
-        </label>
+        <div className="LanguageSelect">
+            <label>{intlChangeLang}: 
+                <select 
+                    value={selectedLang}
+                    onChange={(e) => {onSelectLang(e.target.value)}}
+                >
+                    {langOptions}
+                </select>
+            </label>
+        </div>
     )
 };
 
